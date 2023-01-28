@@ -9,7 +9,6 @@
  *
  * Return: string
  */
-
 char *convert(long int num, int base, int flags, params_t *params)
 {
 	static char *array;
@@ -23,6 +22,7 @@ char *convert(long int num, int base, int flags, params_t *params)
 	{
 		n = -num;
 		sign = '-';
+
 	}
 	array = flags & CONVERT_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
 	ptr = &buffer[49];
