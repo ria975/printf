@@ -1,10 +1,5 @@
-<<<<<<< HEAD
 #ifndef _PRINTF_H
 #define _PRINTF_H
-=======
-#ifndef MAIN_H
-#define MAIN_H
->>>>>>> 2469c48d1a46869bef588e09e0515023b8515221
 
 #include <stdarg.h>
 #include <stdio.h>
