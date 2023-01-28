@@ -1,14 +1,15 @@
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef _PRINTF_H
+#define _PRINTF_H
 
 #include <stdarg.h>
-#include <limits.h>
-#include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
+#include <limits.h>
+#include <stdlib.h>
 
-#define BUFF_SIZE 1024
+#define OUTPUT_BUF_SIZE 1024
 #define BUF_FLUSH -1
+
 #define FIELD_BUF_SIZE 50
 
 #define NULL_STRING "(null)"
@@ -20,7 +21,9 @@
 
 /**
  * struct parameters - parameters struct
+ *
  * @unsign: flag if unsigned value
+ *
  * @plus_flag: on if plus_flag specified
  * @space_flag: on if hashtag_flag specified
  * @hashtag_flag: on if _flag specified
@@ -29,28 +32,33 @@
  *
  * @width: field width specified
  * @precision: field precision specified
+ *
  * @h_modifier: on if h_modifier is specified
  * @l_modifier: on if l_modifier is specified
+ *
  */
 typedef struct parameters
 {
-	unsigned int unsign       : 1;
+	unsigned int unsign			: 1;
+
+	unsigned int plus_flag		: 1;
 	unsigned int space_flag		: 1;
 	unsigned int hashtag_flag	: 1;
-	unsigned int minus_flag		: 1;
 	unsigned int zero_flag		: 1;
+	unsigned int minus_flag		: 1;
 
 	unsigned int width;
 	unsigned int precision;
 
-	unsigned int l_modifier		: 1;
 	unsigned int h_modifier		: 1;
+	unsigned int l_modifier		: 1;
 } params_t;
 
 /**
  * struct specifier - Struct token
- * @specifier: The format token
- * @fn: The function associated.
+ *
+ * @specifier: format token
+ * @f: The function associated
  */
 typedef struct specifier
 {
@@ -65,9 +73,9 @@ int _putchar(int c);
 /* print_functions.c module */
 int print_char(va_list ap, params_t *params);
 int print_int(va_list ap, params_t *params);
+int print_string(va_list ap, params_t *params);
+int print_percent(va_list ap, params_t *params);
 int print_S(va_list ap, params_t *params);
-int print_percent(va_list ap, params_t *params);
-int print_percent(va_list ap, params_t *params);
 
 /* number.c module */
 char *convert(long int num, int base, int flags, params_t *params);
@@ -96,6 +104,7 @@ int print_rot13(va_list ap, params_t *params);
 int _isdigit(int c);
 int _strlen(char *s);
 int print_number(char *str, params_t *params);
+int print_number_right_shift(char *str, params_t *params);
 int print_number_left_shift(char *str, params_t *params);
 
 /* params.c module */
@@ -107,4 +116,4 @@ char *get_precision(char *p, params_t *params, va_list ap);
 /* _prinf.c module */
 int _printf(const char *format, ...);
 
-#endif /* MAIN_H */
+#endif
