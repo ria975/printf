@@ -2,7 +2,7 @@
 
 /**
  * _isdigit - checks if character is digit
- * @c: the character to check
+ * @c: the character to check i
  *
  * Return: 1 if digit, 0 otherwise
  */

@@ -2,7 +2,7 @@
 
 /**
  * convert - converter function, a clone of itoa
- * @num: number
+ * @num: number t
  * @base: base
  * @flags: argument flags
  * @params: paramater struct
